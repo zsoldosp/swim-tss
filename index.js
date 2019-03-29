@@ -19,13 +19,11 @@ class Workout {
     this.TimeInMinutes = 0;
     this.Distance = 0;
 
-    this.intervals.reduce(
-      function(acc, curr) {
-        acc.sTSS += curr.sTSS;
-        acc.TimeInMinutes += curr.totalTimeInMinutesRounded;
-        acc.Distance += curr.Distance;
-      }, self
-    );
+    this.intervals.forEach(function(interval) {
+      self.sTSS += interval.sTSS;
+      self.TimeInMinutes += interval.totalTimeInMinutesRounded;
+      self.Distance += interval.Distance;
+    });
     this.sTSS = Math.round(this.sTSS);
     this.TimeInHours = this.TimeInMinutes / 60 ;
     this.IF = Math.pow(this.sTSS/this.TimeInHours/100, 1/3).toFixed(2);
