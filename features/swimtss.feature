@@ -49,3 +49,6 @@ var IntF = Math.pow(((TSS/(Time/60))/100),0.33).toFixed(2); // time in hours
     Examples:
       | ftp | reps | distance | pace | rest | sTSS | IF   |
       |  90 |    1 |      200 |  100 |   10 |    4 | 0.93 |
+      |  90 |    2 |      100 |  100 |   10 |    4 | 0.93 |
+      | 120 |    2 |      100 |  110 |   10 |    8 | 1.06 |
+      | 110 |    3 |      500 |  115 |   15 |   42 | 0.94 |
