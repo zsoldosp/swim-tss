@@ -1,18 +1,11 @@
-const { setWorldConstructor } = require('cucumber')
+const { setWorldConstructor } = require('cucumber');
+const { Workout } = require('../../index.js');
 
-class CustomWorld {
+class SwimWorkoutWorld {
   constructor() {
-    this.variable = 0
-  }
-
-  setTo(number) {
-    this.variable = number
-  }
-
-  incrementBy(number) {
-    this.variable += number
+    this.workout = new Workout();
   }
 }
 
-setWorldConstructor(CustomWorld)
+setWorldConstructor(SwimWorkoutWorld)
 
