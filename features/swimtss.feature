@@ -39,9 +39,13 @@ var Dist = Dist1+Dist2+Dist3+Dist4+Dist5;
 var IntF = Math.pow(((TSS/(Time/60))/100),0.33).toFixed(2); // time in hours
 
 
-  Scenario: Single interval workout
-    Given my FTP pace is 90s / 100
-    And I swam 1x200 @ 100s / 100 pace with 10 seconds of rest
+  Scenario Outline: Single interval workouts
+    Given my FTP pace is <ftp>s / 100
+    And I swam <reps>x<distance> @ <pace>s / 100 pace with <rest> seconds of rest
     When workout stats are calculated
-    Then sTSS is 4
-    And IF is 0.93
+    Then sTSS is <sTSS>
+    And IF is <IF>
+
+    Examples:
+      | ftp | reps | distance | pace | rest | sTSS | IF   |
+      |  90 |    1 |      200 |  100 |   10 |    4 | 0.93 |
