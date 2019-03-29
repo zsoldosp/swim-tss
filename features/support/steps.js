@@ -26,6 +26,6 @@ When('workout stats are calculated', function() {
 Then('sTSS is {int}', function(sTSS) {
   assert.equal(this.workout.sTSS, sTSS);
 });
-Then('IF is {float}', function(IF) {
+Then('IF is {float}', function(IF) { // TODO: if steps is 0, we have a problem with this matcher
   assert.equal(this.workout.IF, IF);
 });
