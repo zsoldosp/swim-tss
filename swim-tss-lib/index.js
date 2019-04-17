@@ -16,6 +16,30 @@ function calculateIntervalStats({reps, distancePerRep, paceInSeconds, restPerRep
   return res;
 }
 
+function calculateWorkoutStats({ftpPaceInSeconds, intervals, intervalStats}) {
+  let res = {};
+  res.sTSS = 0;
+  res.TimeInMinutes = 0;
+  res.Distance = 0;
+
+  if ( ! intervalStats ) {
+    intervalStats = intervals.map(function(interval) {
+      interval.ftpPaceInSeconds = ftpPaceInSeconds;
+      return calculateIntervalStats(interval);
+    });
+  }
+
+  intervalStats.forEach(function(intervalStat) {
+    res.sTSS += intervalStat.sTSS;
+    res.TimeInMinutes += intervalStat.totalTimeInMinutesRounded;
+    res.Distance += intervalStat.totalDistance;
+  });
+  res.sTSS = Math.round(res.sTSS);
+  res.TimeInHours = res.TimeInMinutes / 60 ;
+  res.IF = Math.pow(res.sTSS/res.TimeInHours/100, 1/3).toFixed(2);
+  return res;
+}
+
 class Workout {
   constructor() {
     this.intervals = [];
@@ -31,20 +55,11 @@ class Workout {
   }
 
   calculateStats() {
-    const self = this;
-    this.sTSS = 0;
-    this.TimeInMinutes = 0;
-    this.Distance = 0;
-
-    this.intervals.forEach(function(interval) {
-      interval.calculateStats(self.ftpPaceInSeconds);
-      self.sTSS += interval.sTSS;
-      self.TimeInMinutes += interval.totalTimeInMinutesRounded;
-      self.Distance += interval.Distance;
+    let stats = calculateWorkoutStats(this);
+    let self = this;
+    Object.getOwnPropertyNames(stats).forEach(function(propertyName) {
+      self[propertyName] = stats[propertyName];
     });
-    this.sTSS = Math.round(this.sTSS);
-    this.TimeInHours = this.TimeInMinutes / 60 ;
-    this.IF = Math.pow(this.sTSS/this.TimeInHours/100, 1/3).toFixed(2);
   }
 };
 
