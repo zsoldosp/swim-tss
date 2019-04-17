@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "description": "A library to allow calculating SwimTSS based on Alan Couzens' work",
   "main": "index.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "chai": "^4.2.0",
     "cucumber": "^5.1.0"
