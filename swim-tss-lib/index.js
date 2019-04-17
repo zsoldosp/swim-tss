@@ -47,8 +47,8 @@ class Interval {
     this.totalRestTimeInSeconds = this.reps * this.restPerRepInSeconds; // TODO: shouldn't be reps - 1?
 
     this.totalSwimTimeInHours = this.totalSwimTimeInSeconds / 60 / 60;
-    this.sTSS = Math.pow(this.intensity, 3)*100 * this.totalSwimTimeInHours;
-    this.sTSS = Math.round(this.sTSS); // TODO: remove once confirmed with AC?
+    this.sTSSBeforeRounding = Math.pow(this.intensity, 3)*100 * this.totalSwimTimeInHours;
+    this.sTSS = Math.round(this.sTSSBeforeRounding); // TODO: remove once confirmed with AC?
     this.totalTimeInSeconds = this.totalSwimTimeInSeconds + this.totalRestTimeInSeconds;
     this.totalTimeInMinutesRounded = Math.round(this.totalSwimTimeInSeconds/60) + Math.round(this.totalRestTimeInSeconds / 60); // TODO: don't round as it causes problems in aggregation (total time, thus in IF calculation)
     // e.g.: FTP 90s / 100, 1x200 @ 100s / 100 pace with 10 secs of rest, IF rounded 0.93, not rounded 0.88
