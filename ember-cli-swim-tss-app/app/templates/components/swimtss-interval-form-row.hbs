@@ -3,3 +3,9 @@
 <td>{{input type="text" value=interval.distancePerRep }}</td>
 <td>{{input type="text" value=interval.paceInSeconds }}</td>
 <td>{{input type="text" value=interval.restPerRepInSeconds }}</td>
+<td>{{ interval.stats.totalDistance }}</td>
+<td>{{ interval.stats.sTSS }}</td>
+<td>{{round interval.stats.sTSSBeforeRounding decimals=3}}</td>
+<td>{{round interval.stats.totalSwimTimeInSeconds decimals=0}}</td>
+<td>{{round interval.stats.totalRestTimeInSeconds decimals=0}}</td>
+<td>{{round interval.stats.intensity decimals=3}}</td>
