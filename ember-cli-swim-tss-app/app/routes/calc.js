@@ -3,7 +3,7 @@ import Workout from 'ember-cli-swim-tss-app/utils/workout';
 
 export default Route.extend({
   model() {
-    let workout = Workout.create({ftpPaceInSeconds: 120});
+    let workout = Workout.create();
     workout.addInterval();
     return workout;
   }

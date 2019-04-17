@@ -10,7 +10,7 @@ export default EmberObject.extend({
   },
 
   addInterval() {
-    let interval = Interval.create({workout: this, reps: 4, distancePerRep: 100, paceInSeconds: 125, restPerRepInSeconds: 10});
+    let interval = Interval.create({workout: this});
     this.intervals.pushObject(interval);
     return interval;
   },

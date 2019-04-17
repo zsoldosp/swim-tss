@@ -1,3 +1,4 @@
+// TODO: what to do on bad input? currently an emty row gives the whole TSS NaN
 function calculateIntervalStats({reps, distancePerRep, paceInSeconds, restPerRepInSeconds, ftpPaceInSeconds}) {
   let res = {};
   res.totalDistance = distancePerRep * reps;
