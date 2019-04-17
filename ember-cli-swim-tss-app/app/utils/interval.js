@@ -1,28 +1,15 @@
 import swimtss from 'npm:swim-tss';
-import EmberObject, { observer } from '@ember/object';
+import EmberObject, { computed } from '@ember/object';
 
-const fields = ['reps', 'distance', 'pace', 'rest'];
+const fields = [];
 
 export default EmberObject.extend({
   init() {
-    this._super(...arguments);
-    this.changeCount = 0;
-    let self = this;
-    let ivalArgs = {};
-    fields.forEach(function initLocal(fieldName) {
-      let instanceVal = self.get(fieldName);
-      ivalArgs[fieldName] = self.get(fieldName);
-    });
-    this.interval = new swimtss.Interval(ivalArgs);
-    this.workout.addInterval(this);
+    this._super(...arguments)
   },
+  ftpPaceInSeconds: computed.alias('workout.ftpPaceInSeconds'),
 
-  onIntervalChanged: observer(...fields, function() {
-    let self = this;
-    fields.forEach(function initLocal(fieldName) {
-      self.interval[fieldName] = self.get(fieldName);
-    });
-    this.workout.calculateStats();
-    this.changeCount++;
+  stats: computed('reps', 'distancePerRep', 'paceInSeconds', 'restPerRepInSeconds', 'ftpPaceInSeconds', function() {
+     return EmberObject.create(swimtss.calculateIntervalStats(this));
   }),
 });

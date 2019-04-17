@@ -1,53 +1,25 @@
 import swimtss from 'npm:swim-tss';
-import EmberObject, { observer } from '@ember/object';
+import EmberObject, { computed } from '@ember/object';
 import { A } from '@ember/array';
-
-const fields = ['sFTP'];
+import Interval from 'ember-cli-swim-tss-app/utils/interval';
 
 export default EmberObject.extend({
   init() {
     this._super(...arguments);
     this.intervals = A();
-    let self = this;
-    let swimtssArgs = {};
-    fields.forEach(function initLocal(fieldName) {
-      let instanceVal = self.get(fieldName);
-      swimtssArgs[fieldName] = self.get(fieldName);
-    });
-    this.workout = new swimtss.Workout(swimtssArgs);
-    this.internalChange = false;
-    this.get('intervals');
   },
 
-  onWorkoutChanged: observer(...fields, function() {
-    if ( this.internalChange ) {
-      return;
-    }
-    let self = this;
-    fields.forEach(function initLocal(fieldName) {
-      self.workout[fieldName] = self.get(fieldName);
-    });
-    this.workout.calculateStats();
-  }),
-
-  onIntervalChanged: observer('intervals.@each.changeCount', function() {
-    console.log('ember.workout.onIntervalChanged');
-    this.internalChange = true;
-    try {
-      let params = {};
-      let self = this;
-      fields.forEach(function copyFromPOJSOToEmber(fieldName) {
-        params[fieldName] = self.workout[fieldName];
-      });
-      this.setProperties(params);
-    } finally {
-      this.internalChange = false;
-    }
-  }),
-
-  addInterval(interval) {
-    this.workout.addInterval(interval.interval);
+  addInterval() {
+    let interval = Interval.create({workout: this, reps: 4, distancePerRep: 100, paceInSeconds: 125, restPerRepInSeconds: 10});
     this.intervals.pushObject(interval);
+    return interval;
   },
 
+  intervalStats: computed('intervals.@each.stats', function() {
+    return this.intervals.map(x => x.stats);
+  }),
+
+  stats: computed('ftpPaceInSeconds', 'intervalStats.[]', function() {
+    return EmberObject.create(swimtss.calculateWorkoutStats(this));
+  }),
 });

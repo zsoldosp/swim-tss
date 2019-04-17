@@ -1,4 +1,4 @@
-<label>FTP swim (s/100): <input type="text" value={{ model.ftp }}></label>
+<label>FTP swim (s/100): {{input type="text" value=model.ftpPaceInSeconds }}</label>
 <table>
   <thead>
     <tr>
@@ -9,16 +9,20 @@
       <th>Rest (s)</th>
     </tr>
   </thead>
-  {{swimtss-interval-form-row workout=model}}
+  <tbody>
+    {{#each model.intervals as |interval| }}
+      {{swimtss-interval-form-row interval=interval}}
+    {{/each}}
+  </tbody>
 </table>
 <table>
   <tr>
     <th>sTSS:</th>
-    <td>{{ model.sTSS }}</td>
+    <td>{{ model.stats.sTSS }}</td>
   </tr>
   <tr>
     <th>IF:</th>
-    <td>{{ model.IF }}</td>
+    <td>{{ model.stats.IF }}</td>
   </tr>
 </table>
 {{outlet}}

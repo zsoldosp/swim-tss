@@ -8,8 +8,4 @@ export default Component.extend({
   inputDistance: computed.alias('interval.distance'),
   inputPace: computed.alias('interval.pace'),
   inputRest: computed.alias('interval.rest'),
-  init() {
-    this._super(...arguments);
-    this.interval = Interval.create({workout: this.workout})
-  },
 });
