@@ -1,4 +1,5 @@
 <label>FTP swim (s/100): {{input type="text" value=model.ftpPaceInSeconds }}</label>
+<button {{action "addIntervalAction" model }}>Add Another Interval</button>
 <table>
   <thead>
     <tr>
@@ -15,6 +16,7 @@
     {{/each}}
   </tbody>
 </table>
+<button {{action "addIntervalAction" model }}>Add Another Interval</button>
 <table>
   <tr>
     <th>sTSS:</th>
