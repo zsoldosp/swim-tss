@@ -27,7 +27,6 @@ class Workout {
   }
 
   addInterval(interval) {
-    interval.calculateStats(this.ftpPaceInSeconds);
     this.intervals.push(interval);
   }
 
@@ -38,6 +37,7 @@ class Workout {
     this.Distance = 0;
 
     this.intervals.forEach(function(interval) {
+      interval.calculateStats(self.ftpPaceInSeconds);
       self.sTSS += interval.sTSS;
       self.TimeInMinutes += interval.totalTimeInMinutesRounded;
       self.Distance += interval.Distance;
