@@ -34,6 +34,7 @@ function calculateWorkoutStats({ftpPaceInSeconds, intervals, intervalStats}) {
     res.TimeInMinutes += intervalStat.totalTimeInMinutesRounded;
     res.Distance += intervalStat.totalDistance;
   });
+  res.intervalStats = intervalStats;
   res.sTSS = Math.round(res.sTSS);
   res.TimeInHours = res.TimeInMinutes / 60 ;
   res.IF = Math.pow(res.sTSS/res.TimeInHours/100, 1/3).toFixed(2);
