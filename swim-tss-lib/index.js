@@ -83,5 +83,7 @@ class Interval {
 
 module.exports = exports = {
   Workout: Workout,
-  Interval: Interval
+  Interval: Interval,
+  calculateWorkoutStats: calculateWorkoutStats,
+  calculateIntervalStats: calculateIntervalStats,
 };
