@@ -1,8 +1,8 @@
 import Route from '@ember/routing/route';
-import swimtss from 'npm:swim-tss';
+import Workout from 'ember-cli-swim-tss-app/utils/workout';
 
 export default Route.extend({
   model() {
-    return new swimtss.Workout();
+    return Workout.create();
   }
 });
