@@ -1,0 +1,24 @@
+<label>FTP swim (s/100): <input type="text" value={{ model.ftp }}></label>
+<table>
+  <thead>
+    <tr>
+      <th>Reps</th>
+      <th></th>
+      <th>Distance</th>
+      <th>Pace (s/100)</th>
+      <th>Rest (s)</th>
+    </tr>
+  </thead>
+  {{swimtss-interval-form-row workout=model}}
+</table>
+<table>
+  <tr>
+    <th>sTSS:</th>
+    <td>{{ model.sTSS }}</td>
+  </tr>
+  <tr>
+    <th>IF:</th>
+    <td>{{ model.IF }}</td>
+  </tr>
+</table>
+{{outlet}}
