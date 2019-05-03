@@ -5,5 +5,8 @@ export default Controller.extend({
     addIntervalAction(workout) {
       workout.addInterval();
     },
+    removeIntervalAction(workout, interval) {
+      workout.removeInterval(interval);
+    },
   },
 });

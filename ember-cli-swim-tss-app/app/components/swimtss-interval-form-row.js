@@ -8,4 +8,9 @@ export default Component.extend({
   inputDistance: computed.alias('interval.distance'),
   inputPace: computed.alias('interval.pace'),
   inputRest: computed.alias('interval.rest'),
+  actions: {
+    removeCurrentIntervalAction() {
+      this.onRemove();
+    },
+  },
 });

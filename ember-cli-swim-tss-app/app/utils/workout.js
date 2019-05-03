@@ -15,6 +15,10 @@ export default EmberObject.extend({
     return interval;
   },
 
+  removeInterval(interval) {
+    this.intervals.removeObject(interval);
+    console.log('hello');
+  },
   intervalStats: computed('intervals.@each.stats', function() {
     return this.intervals.map(x => x.stats);
   }),

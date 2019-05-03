@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>Reps</th>
       <th></th>
       <th>Distance</th>
@@ -18,7 +19,7 @@
   </thead>
   <tbody>
     {{#each model.intervals as |interval| }}
-      {{swimtss-interval-form-row interval=interval}}
+      {{swimtss-interval-form-row interval=interval onRemove=(action "removeIntervalAction" model interval)  }}
     {{/each}}
   </tbody>
 </table>
