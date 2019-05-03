@@ -3,3 +3,8 @@ node_modules
 # vim 
 *~
 *.sw[op]
+# deploy
+firebase.ci.token
+firebase.json
+.firebase*
+package-lock.json
