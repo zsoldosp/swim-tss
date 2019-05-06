@@ -4,6 +4,8 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   tagName: 'tr',
+  classNameBindings: ['hasError'],
+  inputError: computed.alias('interval.inputError'),
   inputReps: computed.alias('interval.reps'),
   inputDistance: computed.alias('interval.distance'),
   inputPace: computed.alias('interval.pace'),

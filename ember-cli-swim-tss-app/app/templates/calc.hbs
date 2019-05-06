@@ -18,7 +18,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#each model.intervals as |interval| }}
+    {{#each model.inputIntervals as |interval| }}
       {{swimtss-interval-form-row interval=interval onRemove=(action "removeIntervalAction" model interval)  }}
     {{/each}}
   </tbody>
