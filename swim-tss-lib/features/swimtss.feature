@@ -48,10 +48,10 @@ var IntF = Math.pow(((TSS/(Time/60))/100),0.33).toFixed(2); // time in hours
 
     Examples:
       | ftp | reps | distance | pace | rest | sTSS | IF   |
-      |  90 |    1 |      200 |  100 |   10 |    4 | 0.93 |
-      |  90 |    2 |      100 |  100 |   10 |    4 | 0.93 |
+      |  90 |    1 |      200 |  100 |   10 |    4 | 0.88 |
+      |  90 |    2 |      100 |  100 |   10 |    4 | 0.87 |
       | 120 |    2 |      100 |  110 |   10 |    8 | 1.06 |
-      | 110 |    3 |      500 |  115 |   15 |   42 | 0.94 |
+      | 110 |    3 |      500 |  115 |   15 |   42 | 0.95 |
 
   Scenario: WU 400, MS: 3x400 @ threshold, CD: 200
     Given my FTP pace is 90s / 100
@@ -60,4 +60,4 @@ var IntF = Math.pow(((TSS/(Time/60))/100),0.33).toFixed(2); // time in hours
     And I swam 2x100 @ 105s / 100 pace with 15 seconds of rest
     When workout stats are calculated
     Then sTSS is 42
-    And IF is 0.92
+    And IF is 0.94

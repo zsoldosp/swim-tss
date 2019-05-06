@@ -11,7 +11,6 @@
       <th>Rest (s)</th>
       <th>Total Distance</th>
       <th>sTSS</th>
-      <th>sTSS without rounding</th>
       <th>swim time (s)</th>
       <th>rest time (s)</th>
       <th>intensity</th>
@@ -35,7 +34,7 @@
   </tr>
   <tr>
     <th>Time:</th>
-    <td>{{ model.stats.TimeInMinutes }} min</td>
+    <td>{{round model.stats.TimeInSeconds decimals=0}} s</td>
   </tr>
   <tr>
     <th>Distance:</th>
