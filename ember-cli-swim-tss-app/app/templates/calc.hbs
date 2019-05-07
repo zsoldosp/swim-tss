@@ -1,5 +1,5 @@
 <label>FTP swim (s/100): {{input type="text" value=model.ftpPaceInSeconds }}</label>
-<button {{action "addIntervalAction" model }}>Add Another Interval</button>
+{{swimtss-interval-form workout=model }}
 <table>
   <thead>
     <tr>
@@ -17,28 +17,29 @@
     </tr>
   </thead>
   <tbody>
-    {{#each model.inputIntervals as |interval| }}
+    {{#each model.intervals as |interval| }}
       {{swimtss-interval-table-row interval=interval onRemove=(action "removeIntervalAction" model interval)  }}
     {{/each}}
   </tbody>
 </table>
-<button {{action "addIntervalAction" model }}>Add Another Interval</button>
 <table>
-  <tr>
-    <th>sTSS:</th>
-    <td>{{ model.stats.sTSS }}</td>
-  </tr>
-  <tr>
-    <th>IF:</th>
-    <td>{{ model.stats.IF }}</td>
-  </tr>
-  <tr>
-    <th>Time:</th>
-    <td>{{round model.stats.TimeInSeconds decimals=0}} s</td>
-  </tr>
-  <tr>
-    <th>Distance:</th>
-    <td>{{ model.stats.Distance }}</td>
-  </tr>
+  <tbody>
+    <tr>
+      <th>sTSS:</th>
+      <td>{{ model.stats.sTSS }}</td>
+    </tr>
+    <tr>
+      <th>IF:</th>
+      <td>{{ model.stats.IF }}</td>
+    </tr>
+    <tr>
+      <th>Time:</th>
+      <td>{{round model.stats.TimeInSeconds decimals=0}} s</td>
+    </tr>
+    <tr>
+      <th>Distance:</th>
+      <td>{{ model.stats.Distance }}</td>
+    </tr>
+  </tbody>
 </table>
 {{outlet}}

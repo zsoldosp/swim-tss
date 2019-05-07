@@ -1,0 +1,8 @@
+<fieldset>
+  <legend>Edit Interval</legend>
+  <label>Reps {{input type="text" value=interval.reps }}</label>
+  <label>Distance {{input type="text" value=interval.distancePerRep }}</label>
+  <label>Pace (s/100) {{input type="text" value=interval.paceInSeconds }}</label>
+  <label>Rest (s) {{input type="text" value=interval.restPerRepInSeconds }}</label>
+  <button {{action "addInterval" }} disabled={{ interval.inputError }}>Add Interval</button>
+</fieldset>

@@ -1,7 +1,6 @@
 import swimtss from 'npm:swim-tss';
 import EmberObject, { computed } from '@ember/object';
 import { A } from '@ember/array';
-import Interval from 'ember-cli-swim-tss-app/utils/interval';
 
 export default EmberObject.extend({
   init() {
@@ -9,18 +8,16 @@ export default EmberObject.extend({
     this.inputIntervals = A();
   },
 
-  addInterval() {
-    let interval = Interval.create({workout: this});
+  addInterval(interval) {
     this.inputIntervals.pushObject(interval);
-    return interval;
   },
 
   removeInterval(interval) {
     this.inputIntervals.removeObject(interval);
   },
 
-  intervals: computed('inputIntervals.[]', 'inputIntervals.@each.inputError', function() {
-    return this.inputIntervals.filter(x => ! x.inputError);
+  intervals: computed('inputIntervals.@each.inputError', function() {
+    return this.inputIntervals.filter(x => x && ! x.inputError);
   }),
 
   intervalStats: computed('intervals.@each.stats', function() {

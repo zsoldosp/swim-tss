@@ -1,8 +1,6 @@
 import swimtss from 'npm:swim-tss';
 import EmberObject, { computed } from '@ember/object';
 
-const fields = [];
-
 export default EmberObject.extend({
   ftpPaceInSeconds: computed.alias('workout.ftpPaceInSeconds'),
 
