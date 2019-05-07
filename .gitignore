@@ -2,7 +2,7 @@
 node_modules
 # vim 
 *~
-*.sw[op]
+*.sw[nop]
 # deploy
 firebase.ci.token
 firebase.json
