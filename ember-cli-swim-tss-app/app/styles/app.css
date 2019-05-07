@@ -1,3 +1,6 @@
 .input-error input {
   background-color: red;
 }
+.editing {
+  background-color: green;
+}

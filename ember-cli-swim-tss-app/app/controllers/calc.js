@@ -13,11 +13,12 @@ export default Controller.extend({
     onEditCancel() {
       this.resetSelection();
     },
-    intervalEditRequested(model, interval) {
-      model.set('selectedInterval', interval);
+    intervalEditRequested(interval) {
+      this.resetSelection();
+      this.model.set('selectedInterval', interval);
     },
-    removeIntervalAction(workout, interval) {
-      workout.removeInterval(interval);
+    removeIntervalAction(interval) {
+      this.model.workout.removeInterval(interval);
     },
   },
   resetSelection() {

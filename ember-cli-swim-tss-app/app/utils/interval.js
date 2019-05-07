@@ -1,7 +1,7 @@
 import swimtss from 'npm:swim-tss';
 import EmberObject, { computed } from '@ember/object';
 
-export default EmberObject.extend({
+const Interval = EmberObject.extend({
   ftpPaceInSeconds: computed.alias('workout.ftpPaceInSeconds'),
 
   inputError: computed('stats.sTSS', function() {
@@ -28,3 +28,5 @@ export default EmberObject.extend({
     });
   }
 });
+
+export default Interval;

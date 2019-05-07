@@ -19,7 +19,7 @@
   </thead>
   <tbody>
     {{#each model.workout.intervals as |interval| }}
-      {{swimtss-interval-table-row interval=interval onRemove=(action "removeIntervalAction" model interval)  }}
+      {{swimtss-interval-table-row interval=interval onRemove=(action "removeIntervalAction" interval) onEditRequest=(action "intervalEditRequested" interval) selectedInterval=model.selectedInterval}}
     {{/each}}
   </tbody>
 </table>
