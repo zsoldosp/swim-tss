@@ -1,5 +1,5 @@
-<label>FTP swim (s/100): {{input type="text" value=model.ftpPaceInSeconds }}</label>
-{{swimtss-interval-form workout=model }}
+<label>FTP swim (s/100): {{input type="text" value=model.workout.ftpPaceInSeconds }}</label>
+{{swimtss-interval-form interval=model.selectedIntervalForEdit onOK=(action "onEditSave") onCancel=(action "onEditCancel")}}
 <table>
   <thead>
     <tr>
@@ -14,10 +14,11 @@
       <th>swim time (s)</th>
       <th>rest time (s)</th>
       <th>intensity</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    {{#each model.intervals as |interval| }}
+    {{#each model.workout.intervals as |interval| }}
       {{swimtss-interval-table-row interval=interval onRemove=(action "removeIntervalAction" model interval)  }}
     {{/each}}
   </tbody>

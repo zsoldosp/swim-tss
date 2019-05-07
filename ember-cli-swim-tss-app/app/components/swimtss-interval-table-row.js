@@ -6,5 +6,8 @@ export default Component.extend({
     removeCurrentIntervalAction() {
       this.onRemove();
     },
+    editCurrentIntervalAction() {
+      this.onSelected(this.interval);
+    }
   },
 });

@@ -4,5 +4,6 @@
   <label>Distance {{input type="text" value=interval.distancePerRep }}</label>
   <label>Pace (s/100) {{input type="text" value=interval.paceInSeconds }}</label>
   <label>Rest (s) {{input type="text" value=interval.restPerRepInSeconds }}</label>
-  <button {{action "addInterval" }} disabled={{ interval.inputError }}>Add Interval</button>
+  <button {{action "editDoneOK" }} disabled={{ interval.inputError }}>OK</button>
+  <button {{action "editDoneCancel" }} >Cancel</button>
 </fieldset>

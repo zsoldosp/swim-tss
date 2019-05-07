@@ -11,4 +11,20 @@ export default EmberObject.extend({
   stats: computed('reps', 'distancePerRep', 'paceInSeconds', 'restPerRepInSeconds', 'ftpPaceInSeconds', function() {
      return EmberObject.create(swimtss.calculateIntervalStats(this));
   }),
+
+  clone() {
+    let interval = Interval.create();
+    this.copyTo(interval);
+    return interval;
+  },
+
+  copyTo(interval) {
+    interval.setProperties({
+     'reps': this.reps,
+     'distancePerRep': this.distancePerRep,
+     'paceInSeconds': this.paceInSeconds,
+     'restPerRepInSeconds': this.restPerRepInSeconds,
+     'workout': this.workout,
+    });
+  }
 });
