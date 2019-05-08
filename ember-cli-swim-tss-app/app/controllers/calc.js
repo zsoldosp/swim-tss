@@ -3,10 +3,12 @@ import Controller from '@ember/controller';
 export default Controller.extend({
   actions: {
     onEditSave() {
-      if ( ! this.model.selectedInterval ) {
-        this.model.workout.addInterval(this.model.selectedIntervalForEdit);
+      let src = this.model.selectedIntervalForEdit,
+          trg = this.model.selectedInterval;
+      if ( ! trg ) {
+        this.model.workout.addInterval(src);
       } else {
-        this.model.selectedInterval.copyTo(this.model.selectedInterval);
+        src.copyTo(trg);
       }
       this.resetSelection();
     },
