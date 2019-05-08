@@ -23,24 +23,26 @@
     {{/each}}
   </tbody>
 </table>
-<table>
-  <tbody>
-    <tr>
-      <th>sTSS:</th>
-      <td>{{ model.stats.sTSS }}</td>
-    </tr>
-    <tr>
-      <th>IF:</th>
-      <td>{{ model.stats.IF }}</td>
-    </tr>
-    <tr>
-      <th>Time:</th>
-      <td>{{round model.stats.TimeInSeconds decimals=0}} s</td>
-    </tr>
-    <tr>
-      <th>Distance:</th>
-      <td>{{ model.stats.Distance }}</td>
-    </tr>
-  </tbody>
-</table>
+{{#let model.workout.stats as |stats| }}
+  <table>
+    <tbody>
+      <tr>
+        <th>sTSS:</th>
+        <td>{{ stats.sTSS }}</td>
+      </tr>
+      <tr>
+        <th>IF:</th>
+        <td>{{ stats.IF }}</td>
+      </tr>
+      <tr>
+        <th>Time:</th>
+        <td>{{round stats.TimeInSeconds decimals=0}} s</td>
+      </tr>
+      <tr>
+        <th>Distance:</th>
+        <td>{{ stats.Distance }}</td>
+      </tr>
+    </tbody>
+  </table>
+{{/let}}
 {{outlet}}
