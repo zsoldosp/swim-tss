@@ -8,7 +8,7 @@ const SwimTssModel = EmberObject.extend({
     this._super(...arguments);
     this.workout = Workout.create();
   },
-  selectedIntervalForEdit: computed('selectedInterval', function() {
+  selectedIntervalForEdit: computed('selectedInterval', 'workout.intervals.length', function() {
    if ( this.selectedInterval ) {
      return this.selectedInterval.clone();
    } else {
