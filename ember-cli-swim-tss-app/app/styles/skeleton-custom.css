@@ -38,13 +38,29 @@ select {
 .edit-interval input[name=distance] { width: 8rem; }
 input.pace { width: 6rem; }
 .edit-interval input[name=rest] { width: 6rem; }
+input.percent { width: 8rem; }
 
 	.edit-interval section {
 		 display: inline-block;
 	}
 
+label {
+	text-align: right;
+	display: inline-block;
+}
+label input {
+	display: inline-block;
+}
+
+#athlete label { width: 12rem; }
+#pace-modifiers label { width: 20rem; }
+#pace-ranges label { width: 30rem; }
+
+
+.columns h2 { text-align: center; }
 
 /* Larger than phone */
+/* TODO: 568px looks bad - summary floats out */
 @media (min-width: 550px) {
 	nav.calc {
 		 display:none;
@@ -52,7 +68,7 @@ input.pace { width: 6rem; }
 	.edit-interval section {
 	}
   .header {
-    margin-top: 18rem; }
+    margin-top: 10rem; }
   .container {
 	  width: 90%;
   }

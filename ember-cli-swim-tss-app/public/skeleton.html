@@ -4,9 +4,9 @@
 
   <!-- Basic Page Needs  -->
   <meta charset="utf-8">
-  <title>Your page title here :)</title>
+  <title>SwimTSS Calculator mockup</title>
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="Peter Zsoldos">
 
   <!-- Mobile Specific Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,38 +29,58 @@
 
   <!-- Primary Page Layout -->
     <section class="header">
-      <h2 class="title">Swim TSS Calculator</h2>
+      <h1 class="title">Swim TSS Calculator</h1>
       <nav class="calc">
-      <a class="button button-primary" href="#athlete">Athlete</a>
+      <a class="button button-primary" href="#athlete">sFTP</a>
       <a class="button button-primary" href="#workout">Workout</a>
       <a class="button button-primary" href="#summary">Summary</a>
+      <a class="button button-primary" href="#pace-ranges">Pace Ranges</a>
+      <a class="button button-primary" href="#pace-modifiers">Pace Modifiers</a>
       </nav>
     </section>
     <section class="container content">
       <div class="row u-max-full-width">
         <div class="three columns" id="athlete">
-<h3>Athlete</h3>
-           <label>FTP swim (s/100): <input class="pace" type="text"></label>
-<h4>% modifiers</h4>
-           <label>Form: <input class="percent" type="text" value="20"></label>
-           <label>Drill: <input class="percent" type="text" value="40"></label>
-           <label>Kick: <input class="percent" type="text" value="40"></label>
+<h2>sFTP (s/100)</h2>
+           <label>free: <input class="pace" type="text"></label>
+           <label>breast: <input class="pace" type="text"></label>
+           <label>back: <input class="pace" type="text"></label>
+           <label>fly: <input class="pace" type="text"></label>
+					</label>
         </div>
         <div class="six columns" id="workout">
         <h2>Workout </h2>
 	<i class="fas fa-plus"></i>
 		    <ol>
+		    <!--
 			    <li>1x200 free @ 120s/100 <i class="fas fa-trash-alt"></i> <i class="far fa-clone"></i> <i class="far fa-edit"></i></li>
+			    -->
+			    <li>1x200 free - easy<i class="fas fa-trash-alt"></i> <i class="far fa-clone"></i> <i class="far fa-edit"></i></li>
 			    <li class="edit-interval">
 			      <section>
 			      <input type="text" name="reps" value="1">
 			      x
 			      <input type="text" name="distance" value="200">
-			      <select name="style"><option value="free">free</option></select>
+			      <select name="style">
+			      	<option value="free">free</option>
+			      	<option value="breast">breast</option>
+			      	<option value="back">back</option>
+			      	<option value="fly">fly</option>
+				</select>
+			      <select name="modifier">
+			      	<option value=""></option>
+			      	<option value="form">form</option>
+			      	<option value="drill">drill</option>
+			      	<option value="kick">kick</option>
+				</select>
 			      </section>
 			      <section>
-			      @
-			      <input type="text" class="pace" value="120">s/100,
+			      <select name="pace">
+			      	<option value="easy">easy</option>
+			      	<option value="moderate">moderate</option>
+			      	<option value="threshold">threshold</option>
+			      	<option value="vo2max">vo2max</option>
+				</select>
 			      RI=<input type="text" name="rest" value="1">
 			      </section>
 			      <section>
@@ -68,10 +88,10 @@
 			      <button class="cancel">cancel</button>
 			      </section>
 			     </li>
-			    <li>4x25 drill @ 140s/100, RI=15s <i class="fas fa-ellipsis-h"></i><i class="fas fa-trash-alt"></i> <i class="far fa-clone"></i> <i class="far fa-edit"></i></li>
-			    <li>2x200 @ 119s/100, RI=45s </li>
-			    <li>4x25 kick @ 180s/100, RI=15s </li>
-			    <li>1x200 free @ 120s/100 </li>
+			    <li>4x25 free drill - easy, RI=15s <i class="fas fa-ellipsis-h"></i><i class="fas fa-trash-alt"></i> <i class="far fa-clone"></i> <i class="far fa-edit"></i></li>
+			    <li>2x200 free - threshold, RI=45s </li>
+			    <li>4x25 free kick - easy, RI=15s </li>
+			    <li>1x200 free - easy<i class="fas fa-trash-alt"></i> <i class="far fa-clone"></i> <i class="far fa-edit"></i></li>
 			  </ol>
 
         </div>
@@ -97,6 +117,37 @@
       </tr>
     </tbody>
   </table>
+        </div>
+      </div>
+      <div class="row u-max-full-width">
+        <div class="twelve columns" id="pace-ranges">
+	<h2>Pace Ranges (%lo - %hi)</h2>
+	<label>
+	easy
+					<input class="percent lo" type="text" value="76">
+					<input class="percent hi" type="text" value="85">
+	</label>
+	<label>
+	moderate
+					<input class="percent lo" type="text" value="86">
+					<input class="percent hi" type="text" value="95">
+	</label>
+	<label>
+	threshold
+					<input class="percent lo" type="text" value="96">
+					<input class="percent hi" type="text" value="105">
+	</label>
+	<label>
+	vo2max
+					<input class="percent lo" type="text" value="106">
+					<input class="percent hi" type="text" value="130">
+	</label>
+        </div>
+        <div class="twelve columns" id="pace-modifiers">
+	   <h2>Pace modifiers (%slower)</h2>
+           <label>form: <input class="percent" type="text" value="20"></label>
+           <label>drill: <input class="percent" type="text" value="40"></label>
+           <label>kick: <input class="percent" type="text" value="40"></label>
         </div>
       </div>
     </section>
