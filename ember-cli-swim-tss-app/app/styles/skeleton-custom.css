@@ -56,6 +56,9 @@ label input {
 #pace-modifiers label { width: 20rem; }
 #pace-ranges label { width: 30rem; }
 
+input[disabled=disabled] {
+	background: lightgray;
+}
 
 #workout .add-new { 
 	padding-right: 10%;
